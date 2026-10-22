@@ -1,0 +1,6 @@
+@InventoryBuddyService_HostAddress = http://localhost:5044
+
+GET {{InventoryBuddyService_HostAddress}}
+Accept: application/json
+
+###

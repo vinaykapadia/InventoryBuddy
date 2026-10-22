@@ -1,0 +1,30 @@
+﻿@model InventoryBuddyService.Models.DisplayModel
+
+<h1>Inventory</h1>
+
+@foreach(var category in Model.Categories.Where(c => c.Products.Sum(p => p.Items.Sum(i => i.Quantity)) != 0))
+{
+    <span>@category.Name</span>
+    <ul>
+        @foreach(var product in category.Products.Where(p => p.Items.Sum(i => i.Quantity) != 0))
+        {
+            <li>@product.Name @product.Items.Sum(i => i.Quantity)
+                <ul>
+                    @foreach(var item in product.Items.Where(i => i.Quantity != 0))
+                    {
+                        <li>@item.Name @item.Quantity</li>
+                    }
+                </ul>
+            </li>
+        }
+    </ul>
+}
+
+@if (Model.Uncategorized.Count > 0)
+{
+    <span>Uncategorized Items</span>
+    @foreach (var item in Model.Uncategorized)
+    {
+        <li>@item.Barcode @item.Quantity</li>
+    }
+}
