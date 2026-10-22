@@ -45,3 +45,15 @@ The service uses conventional MVC routing (`MapControllers` and `MapControllerRo
 ## Legacy & Existing Code Rules
 - Match the style and patterns of the surrounding file.
 - Do NOT refactor unrelated code, rename existing public APIs, or upgrade NuGet packages unless explicitly requested in the issue.
+
+# .NET 10 Repository Guidelines
+
+## Commands
+- Build: `dotnet build`
+- Test: `dotnet test` (Always run this to verify your changes before opening a PR)
+
+## Code Rules
+- Framework: .NET 10 / C# 14.
+- Match existing architectural patterns, naming conventions, and folder structures in the repo.
+- Do NOT refactor existing working code or alter `.csproj` / solution files unless the issue explicitly asks for it.
+- Write unit tests using xUnit inside the `.Tests` project for any new logic or bug fixes.
